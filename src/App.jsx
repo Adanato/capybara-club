@@ -1,24 +1,29 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import "./App.css";
+// Pages
+import Home from "./Pages/HomePage";
+import About from "./Pages/AboutPage";
+import Resume from "./Pages/ResumePage";
+import Contact from "./Pages/ContactPage";
+
+// Common component
+import Header from "./Shared/Header";
+import Footer from "./Shared/Footer";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="root-container">
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </main>
     </>
   );
 }
