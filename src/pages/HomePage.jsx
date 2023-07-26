@@ -32,7 +32,7 @@ function HeroSection() {
     <section className="section-hero">
       <div className="hero-container">
         <div className="hero-content">
-          <h1 className="hero-h1">Hi, I&aposm Adam Nguyen!</h1>
+          <h1 className="hero-h1">Hi, I'm Adam Nguyen!</h1>
           <p className="hero-paragraph">
             A Computer Science Sophomore at Virginia Tech, with hands-on
             experience in JavaScript, HTML, CSS and web development frameworks.
