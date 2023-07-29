@@ -143,7 +143,7 @@ a {
 /* ------------------------------ */
 .footer {
   /* Gradient from blue (#0000FF) to purple (#800080), bottom left to top right */
-  background: linear-gradient(to bottom right, #364fc7, #5f3dc4);
+  background: #854d0e;
   color: #fff;
   padding: 3rem;
   width: 100%;
@@ -160,7 +160,7 @@ a {
   justify-content: space-between;
   list-style: none;
   gap: 3.2rem;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .footer-links a {
   color: #fff;
