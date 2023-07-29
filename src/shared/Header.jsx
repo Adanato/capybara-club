@@ -9,9 +9,27 @@ function Header() {
           Capybara Space
         </div>
       </Link>
-      <button className="menu-icon">Menu</button>
+      <NavBar />
     </header>
   );
 }
 
+function NavBar() {
+  return (
+    <nav className={`main-nav`}>
+      <Link className="nav-link" to="/">
+        Home
+      </Link>
+      <Link className="nav-link" to="/about">
+        About
+      </Link>
+      <Link className="nav-link" to="/signup">
+        SignUp
+      </Link>
+      <Link className="nav-link nav-contact-button" to="/login">
+        Login
+      </Link>
+    </nav>
+  );
+}
 export default Header;

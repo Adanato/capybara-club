@@ -1,17 +1,17 @@
 function Footer() {
   return (
     <footer className="footer">
-      <span>&copy; 2023 Adam Nguyen. All rights reserved.</span>
+      <span>&copy; 2023 CapybaraSpace.com All rights reserved.</span>
 
       <ul className="footer-links">
         <li>
-          <a href="https://github.com/Adanato">GitHub </a>
+          <a href="#">Instagram </a>
         </li>
         <li>
-          <a href="https://linkedin.com/in/adamnguyent">LinkedIn </a>
+          <a href="#">LinkedIn Page</a>
         </li>
         <li>
-          <a href="mailto: adanato@vt.edu">Email Me</a>
+          <a href="#">DM </a>
         </li>
       </ul>
     </footer>

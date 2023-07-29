@@ -1,42 +1,5 @@
 import PropTypes from "prop-types";
-
-const Dummy = [
-  {
-    username: "gort",
-    title: "First encounter with Capybara Space",
-    description:
-      "I love this website. The community is so welcoming and informative.",
-    created: "2020",
-  },
-  {
-    username: "capybara_lover",
-    title: "Living the Capybara Life",
-    description:
-      "Absolutely fantastic site! I've learned so much about capybaras here.",
-    created: "2021",
-  },
-  {
-    username: "rodentFanatic",
-    title: "Deep Dive into Capybara World",
-    description:
-      "Great resource for capybara enthusiasts. Love the interactive features.",
-    created: "2021",
-  },
-  {
-    username: "nature_enthusiast",
-    title: "Nature and Capybaras Combined",
-    description:
-      "This site has the best capybara photos. Highly recommended for nature lovers.",
-    created: "2019",
-  },
-  {
-    username: "explorerMike",
-    title: "Exploring the Capybara Universe",
-    description:
-      "The Capybara Space forums are a treasure trove of information. Great community.",
-    created: "2018",
-  },
-];
+import { useEffect, useState } from "react";
 
 function HomePage() {
   return (
@@ -50,15 +13,30 @@ function HomePage() {
 // Capy Posts section
 //------------------------
 function Featured() {
-  return <h1>Coolest capybara</h1>;
+  return <h1>Posts</h1>;
 }
 //------------------------
 // Capy Posts section
 //------------------------
 
 function Posts() {
-  return Dummy.map((data) => {
-    const { username, title, description, created } = data;
+  const [userPosts, setUserPosts] = useState([]);
+  useEffect(() => {
+    const dataFetch = async () => {
+      const response = await fetch("http://localhost:3000/api/v1/capybara");
+      if (!response.ok) {
+        console.error(`Received status code ${response.status}`);
+        return;
+      }
+      const data = await response.json();
+      setUserPosts(data);
+    };
+
+    dataFetch();
+  }, []);
+
+  return userPosts.map((post) => {
+    const { username, title, description, created } = post;
     return (
       <Post
         key={username}
@@ -90,9 +68,5 @@ function Post({ username, title, description, created }) {
     </div>
   );
 }
-
-//------------------------
-// Experience Section
-//------------------------
 
 export default HomePage;
