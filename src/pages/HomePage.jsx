@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 
 function HomePage() {
   return (
-    <>
+    <main className="home-page-container">
       <Featured />
       <Posts />
-    </>
+    </main>
   );
 }
 //------------------------
