@@ -32,7 +32,10 @@ function Form() {
         password: password,
       }),
     });
-
+    if (!response.ok) {
+      console.error(`Received status code ${response.status}`);
+      return;
+    }
     const data = await response.json();
     console.log(data);
   };
