@@ -18,7 +18,6 @@ function App() {
   return (
     <>
       <Header />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/capybara" element={<Capybara />} />
@@ -27,7 +26,6 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/post/:id" element={<Post />} />
       </Routes>
-
       <Footer />
     </>
   );
