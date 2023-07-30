@@ -13,7 +13,7 @@ function HomePage() {
 // Capy Posts section
 //------------------------
 function Featured() {
-  return <h1>Posts</h1>;
+  return;
 }
 //------------------------
 // Capy Posts section
@@ -35,18 +35,23 @@ function Posts() {
     dataFetch();
   }, []);
 
-  return userPosts.map((post) => {
-    const { username, title, description, created } = post;
-    return (
-      <Post
-        key={username}
-        username={username}
-        title={title}
-        description={description}
-        created={created}
-      />
-    );
-  });
+  return (
+    <div className="posts-section">
+      <h1>Posts</h1>
+      {userPosts.map((post) => {
+        const { username, title, description, created } = post;
+        return (
+          <Post
+            key={username}
+            username={username}
+            title={title}
+            description={description}
+            created={created}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 Post.propTypes = {

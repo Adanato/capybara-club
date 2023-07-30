@@ -137,12 +137,24 @@ a {
   background-color: #0ca678;
   border-radius: 1rem;
 }
+/* ------------------------------ */
+/* Posts Section
+/* ------------------------------ */
+.posts-section {
+  max-width: 130rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 
+  margin: 0 auto;
+}
+.post {
+  height: 20rem;
+}
 /* ------------------------------ */
 /* Footer Section */
 /* ------------------------------ */
 .footer {
-  /* Gradient from blue (#0000FF) to purple (#800080), bottom left to top right */
   background: #854d0e;
   color: #fff;
   padding: 3rem;
