@@ -10,7 +10,7 @@ function HomePage() {
   );
 }
 //------------------------
-// Capy Posts section
+// Featured section
 //------------------------
 function Featured() {
   return;

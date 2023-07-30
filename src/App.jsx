@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/HomePage";
 import About from "./pages/AboutPage";
 import Capybara from "./pages/CapybaraPage";
-import Contact from "./pages/ContactPage";
 import Auth from "./pages/AuthPage";
 
 // Sub Pages
@@ -24,7 +23,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/capybara" element={<Capybara />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Auth />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/post/:id" element={<Post />} />
