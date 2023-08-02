@@ -13,15 +13,15 @@
   align-items: center;
 
   /* Inheritance */
-  font-size: 6.2rem;
+  font-size: 3.6rem;
 
   /* Container  */
-  padding: 3.2rem;
+  padding: 1.6rem;
   width: 100%;
   background-color: #854d0e;
 }
 .header-container img {
-  max-height: 50px; /* Adjust the height as needed */
+  max-height: 35px; /* Adjust the height as needed */
   width: auto; /* Preserve aspect ratio */
 }
 .header-container {
