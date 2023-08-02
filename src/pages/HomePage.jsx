@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import "../CSS/HomePage.css";
 function HomePage() {
   return (
     <main className="home-page-container">
@@ -42,9 +42,9 @@ function Posts() {
       <h1>Posts</h1>
       {userPosts.map((post) => {
         console.log(post);
-        const { username, title, description, id } = post;
+        const { username, title, description, _id } = post;
         return (
-          <Link key={username} to={`/post/${id}`}>
+          <Link key={username} to={`/post/${_id}`}>
             <Post username={username} title={title} description={description} />
           </Link>
         );
