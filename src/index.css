@@ -55,14 +55,6 @@ body {
   overflow-x: hidden;
 }
 
-.home-page-container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 h1 {
   font-size: 5.4rem;
 }

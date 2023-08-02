@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../CSS/HomePage.css";
-function HomePage() {
+import "./Home.css";
+function Home() {
   return (
     <main className="home-page-container">
       <Featured />
@@ -69,4 +69,4 @@ function Post({ username, title, description }) {
     </div>
   );
 }
-export default HomePage;
+export default Home;
