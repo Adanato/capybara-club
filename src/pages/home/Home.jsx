@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
@@ -53,11 +52,6 @@ function Posts() {
   );
 }
 
-Post.propTypes = {
-  username: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-};
 function Post({ username, title, description }) {
   return (
     <div className="post">
