@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "./Header.css";
-import capybaraIcon from "../assets/capybara-svgrepo-com.svg";
+import capybaraIcon from "/src/assets/capybara-svgrepo-com.svg";
 function Header() {
   return (
     <header className="main-header">

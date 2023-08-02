@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../CSS/AuthPage.css";
+import "./Auth.css";
 
-function AuthPage() {
+function Auth() {
   return (
     <main className="auth-page-container">
       <Form></Form>
@@ -75,4 +75,4 @@ function Form() {
     </section>
   );
 }
-export default AuthPage;
+export default Auth;

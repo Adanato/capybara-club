@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // Component imports
 
 // CSS
-import "../CSS/PostPage.css";
+import "./Post.css";
 function PostPage() {
   return (
     <main className="post-page-container">
