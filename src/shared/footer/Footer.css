@@ -1,23 +1,32 @@
 .footer {
   background: #854d0e;
   color: #fff;
-  padding: 3rem;
-  width: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   /* Keeps the footer at the bottom */
   margin-top: auto;
+
+  padding-top: 12.8rem;
+  padding-bottom: 4rem;
+
+  font-size: 1.8rem;
+  gap: 9.6rem;
 }
 
 .footer-links {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   list-style: none;
-  gap: 3.2rem;
+  gap: 2.4rem;
   text-decoration: none;
 }
 .footer-links a {
   color: #fff;
+  text-decoration: none;
+}
+.footer span {
+  font-size: 1rem;
 }
