@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import "./Post.css";
 function PostPage() {
   return (
-    <main className="post-page-container">
+    <main className="post-main">
       <Post />
       <Comments />
     </main>
@@ -29,7 +29,7 @@ function Post() {
   console.log(post);
   if (!post) {
     return (
-      <section className="post-page-section">
+      <section className="post-section">
         <div>Loading...</div>
       </section>
     );
@@ -45,6 +45,6 @@ function Post() {
 }
 
 function Comments() {
-  return <p>User comments</p>;
+  return <section>User comments</section>;
 }
 export default PostPage;

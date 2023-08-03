@@ -5,20 +5,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-/* ------------------------------ */
-/* Posts Section
-  /* ------------------------------ */
-.posts-section {
-  max-width: 130rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-
-  margin: 12.8rem auto;
-}
-.post {
-  height: 20rem;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-}

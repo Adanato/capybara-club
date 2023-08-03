@@ -1,4 +1,4 @@
-.post-page-container {
+.post-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
 }
-.post-page-section {
+.post-section {
   max-width: 130rem;
   height: 20rem;
   margin: auto;
