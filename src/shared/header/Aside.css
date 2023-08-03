@@ -5,7 +5,7 @@
   left: -80%; /* start off the screen */
   width: 80%;
   height: 100vh;
-  background-color: #333;
+  background-color: #059669;
   overflow-y: auto;
   transition: all 0.4s ease; /* add a transition */
   z-index: 2;
@@ -26,8 +26,7 @@
 .aside-link {
   font-size: 1.6rem;
   padding: 0 1.2rem;
-  border-left: #fff solid 0.1rem;
-  border-right: #fff solid 0.1rem;
+  color: aliceblue;
 }
 .open-menu {
   width: 3rem;

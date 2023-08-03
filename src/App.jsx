@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/capybara" element={<Capybara />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Auth />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/post/:id" element={<Post />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

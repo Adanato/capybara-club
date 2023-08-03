@@ -27,6 +27,7 @@ function Post() {
     dataFetch();
   }, [id]);
   console.log(post);
+
   if (!post) {
     return (
       <section className="post-section">
@@ -34,6 +35,7 @@ function Post() {
       </section>
     );
   }
+
   const { title, description, username } = post;
   return (
     <section className="post-page-section">
