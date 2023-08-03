@@ -3,8 +3,23 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
 }
 .post-section {
   max-width: 30rem;
-  height: 20rem;
+  height: auto;
+}
+
+.post {
+  padding: 1rem;
+  height: auto;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.post-header {
+  display: flex;
 }

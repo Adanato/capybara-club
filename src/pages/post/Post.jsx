@@ -39,21 +39,59 @@ function Post() {
   const { title, description, username } = post;
   return (
     <section className="post-section">
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <p>User: {username}</p>
+      <article className="post">
+        <header className="post-header">
+          <h2>{title}</h2>
+          <p>By: {username}</p>
+        </header>
+        <p>{description}</p>
+        <div>
+          <button>like</button>
+          <button>dislike</button>
+          [likes]<button>option</button>
+        </div>
+      </article>
     </section>
   );
 }
 
 function Comments() {
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+    async function grabComments() {
+      const response = await fetch(
+        `http://localhost:3000/api/v1/posts${id}?query=comments&&results=10`
+      );
+      const data = await response.json();
+      console.log(data);
+
+      setComments(data);
+    }
+    grabComments();
+  });
+
+  if (!comments) {
+    return (
+      <section className="comments-section">
+        <p>Loading comments</p>
+      </section>
+    );
+  }
   return (
-    <section>
+    <section className="comments-section">
       <form>
         <input></input>
       </form>
-      User comments
+      {comments.map((comment) => {
+        const [user, commentText, likes] = comment;
+
+        return <Comment key={user} />;
+      })}
     </section>
   );
+}
+
+function Comment({ user, commentText, likes }) {
+  return;
 }
 export default PostPage;
