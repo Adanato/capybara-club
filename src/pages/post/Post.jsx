@@ -38,7 +38,7 @@ function Post() {
 
   const { title, description, username } = post;
   return (
-    <section className="post-page-section">
+    <section className="post-section">
       <h1>{title}</h1>
       <p>{description}</p>
       <p>User: {username}</p>
@@ -47,6 +47,13 @@ function Post() {
 }
 
 function Comments() {
-  return <section>User comments</section>;
+  return (
+    <section>
+      <form>
+        <input></input>
+      </form>
+      User comments
+    </section>
+  );
 }
 export default PostPage;

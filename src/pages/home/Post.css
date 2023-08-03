@@ -2,15 +2,19 @@
 /* Posts Section
   /* ------------------------------ */
 .posts-section {
-  max-width: 130rem;
+  max-width: 30rem;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 1.6rem;
 
-  margin: 12.8rem auto;
+  margin: 3.2rem auto;
 }
 .post {
-  height: 20rem;
+  height: 15rem;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+}
+
+.post-header {
+  display: flex;
 }

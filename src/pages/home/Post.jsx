@@ -23,6 +23,7 @@ function Posts() {
     dataFetch();
   }, []);
 
+  // Visuals
   return (
     <div className="posts-section">
       <h1>Posts</h1>
@@ -44,7 +45,7 @@ function Post({ username, title, description }) {
     <div className="post">
       <div className="post-header">
         <h2>{title}</h2>
-        <span>User: {username}</span>
+        <span>by: {username}</span>
       </div>
       <p>{description}</p>
     </div>

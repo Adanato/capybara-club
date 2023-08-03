@@ -8,7 +8,7 @@ import Aside from "./Aside";
 import "./Header.css";
 
 // File imports
-import capybaraIcon from "/src/assets/capybara-svgrepo-com.svg";
+import capybaraIcon from "/src/assets/capybara.svg";
 import menubar from "/src/assets/menu-bar.png";
 import closemenubar from "/src/assets/menu-x.png";
 
