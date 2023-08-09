@@ -3,7 +3,7 @@ import Posts from "./Post";
 import "./Home.css";
 function Home() {
   return (
-    <main className="home-page-container">
+    <main className="home-container">
       <Featured />
       <Posts />
     </main>

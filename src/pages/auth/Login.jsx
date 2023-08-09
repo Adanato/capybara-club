@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "./Auth.css";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-function Auth() {
+function Login() {
   return (
     <main className="auth-page-container">
       <Form></Form>
@@ -11,6 +12,7 @@ function Auth() {
 
 function Form() {
   const [auth, setAuth] = useState(true);
+
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -38,14 +40,21 @@ function Form() {
     }
     const data = await response.json();
     console.log(data);
+    handleAuth();
   };
 
   return (
     <section className="auth-section">
       <form onSubmit={handleSubmit}>
-        <h1>{auth ? "login" : "signin"}</h1>
+        <header>
+          <h1>Welcome to CSpace</h1>
+          <span>
+            Create an account or <Link>login</Link>
+          </span>
+        </header>
+
         <div>
-          <label htmlFor="name">Enter your name: </label>
+          <label htmlFor="name">Username </label>
           <input
             type="text"
             name="name"
@@ -55,8 +64,9 @@ function Form() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
+
         <div>
-          <label htmlFor="password">Enter your password: </label>
+          <label htmlFor="password">Password </label>
           <input
             type="password"
             name="password"
@@ -67,12 +77,9 @@ function Form() {
           />
         </div>
 
-        <input type="submit" value="Submit" />
-        <button onClick={handleAuth}>
-          {auth ? "login instead" : "sign in instead"}
-        </button>
+        <input type="submit" value="Login" />
       </form>
     </section>
   );
 }
-export default Auth;
+export default Login;

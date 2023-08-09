@@ -1,0 +1,13 @@
+.auth-page-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-section {
+  max-width: 130rem;
+  height: 20rem;
+  margin: auto;
+}
