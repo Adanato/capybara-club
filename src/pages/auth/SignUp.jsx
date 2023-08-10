@@ -90,6 +90,7 @@ function Form() {
 
         <input type="submit" value="Sign Up" />
       </form>
+      <p>Forgot Password?</p>
     </section>
   );
 }

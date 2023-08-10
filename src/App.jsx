@@ -5,8 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Capybara from "./pages/Capybara";
+
 import SignUp from "./pages/auth/SignUp";
 import Login from "./pages/auth/Login";
+import Forgot from "./pages/auth/Forgot";
 
 // Sub Pages
 import Post from "./pages/post/Post";
@@ -24,8 +26,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/capybara" element={<Capybara />} />
         <Route path="/about" element={<About />} />
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot" element={<Forgot />} />
+
         <Route path="/post/:id" element={<Post />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
