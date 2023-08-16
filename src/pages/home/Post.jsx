@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import baseUrl from "../util.js";
 import "./Post.css";
 //------------------------
 // Capy Posts section
@@ -10,7 +10,7 @@ function Posts() {
   const [userPosts, setUserPosts] = useState([]);
   useEffect(() => {
     const dataFetch = async () => {
-      const response = await fetch("http://localhost:3000/api/v1/posts");
+      const response = await fetch(`${baseUrl}/api/v1/posts`);
 
       if (!response.ok) {
         console.error(`Received status code ${response.status}`);
