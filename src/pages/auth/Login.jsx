@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import baseUrl from "../../util";
 import "./Login.css";
@@ -7,57 +7,64 @@ import "./Login.css";
 function Login() {
   return (
     <main className="auth-page-container">
-      <Form></Form>
+      <Form />
     </main>
   );
 }
 
 function Form() {
-  const [auth, setAuth] = useState(false);
-
   const [name, setName] = useState("");
+  const [auth, setAuth] = useState(false);
   const [password, setPassword] = useState("");
-
-  function handleAuth() {
-    setAuth((auth) => !auth);
-  }
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log(auth, "log state");
+    if (auth) {
+      navigate("/");
+    }
+  }, [auth, navigate]);
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // prevent the form from reloading the page
-
+    event.preventDefault();
     const credentials = {
-      name: name,
-      
+      email: name,
       password: password,
     };
-    // sending a POST request
     const response = await axios.post(
       `${baseUrl}/api/v1/auth/login`,
       credentials
     );
-    if (!response.ok) {
+    if (response.status !== 200) {
       console.error(`Received status code ${response.status}`);
       return;
     }
-
-    const data = await response.json();
-    console.log(data);
     setAuth(true);
   };
 
-  async function handleDemoCredentials () {
-    setName("")
-    setPassword("")
-    await handleSubmit();
+  async function handleDemoCredentials(event) {
+    event.preventDefault();
+    const demoCredentials = {
+      email: "A@gmail.com",
+      password: "Adam20190",
+    };
+    const response = await axios.post(
+      `${baseUrl}/api/v1/auth/login`,
+      demoCredentials
+    );
+    if (response.status !== 200) {
+      console.error(`Received status code ${response.status}`);
+      return;
+    }
+    setAuth(true);
   }
 
   return (
     <section className="auth-section">
-      <form action="/login" method="post" onSubmit={handleSubmit}>
+      <form action="/login" method="post">
         <header>
           <h1>Welcome to CSpace</h1>
           <span>
-            Create an account or <Link>signup</Link>
+            Create an account <Link to="/register">Register</Link>
           </span>
         </header>
 
@@ -85,8 +92,9 @@ function Form() {
           />
         </div>
 
-        <input type="submit" value="login" />
-        <input type="submit" value="demoLogin" onClick={}/>
+        <input type="submit" value="login" onClick={handleSubmit} />
+        <input type="submit" value="Demo" onClick={handleDemoCredentials} />
+        <button onClick={() => navigate("/")}>BUTTO</button>
       </form>
     </section>
   );

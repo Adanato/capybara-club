@@ -51,7 +51,7 @@ function Form({ setAuth }) {
         <header>
           <h1>Welcome to CSpace</h1>
           <span>
-            Create an account or <Link to="/s">login</Link>
+            Create an account or <Link to="/login">login</Link>
           </span>
         </header>
 
@@ -89,7 +89,7 @@ function Form({ setAuth }) {
           />
         </div>
 
-        <input type="submit" value="Sign Up" />
+        <input type="submit" value="Register" />
       </form>
       <p>Forgot Password?</p>
     </section>
