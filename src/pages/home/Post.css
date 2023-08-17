@@ -5,10 +5,11 @@
   max-width: 30rem;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 0.8rem;
 
   margin: 3.2rem auto;
 }
+
 .post {
   height: 15rem;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
@@ -17,4 +18,8 @@
 
 .post-header {
   display: flex;
+  flex-direction: column;
+}
+
+.post-body {
 }
