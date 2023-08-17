@@ -141,7 +141,7 @@ function Post({
       console.log(response.status);
     }
     likeDislike();
-  }, [userPreference, postId]);
+  }, [userPreference, postId, prevPreference]);
 
   const dateObj = createdAt.toLocaleString();
   return (
