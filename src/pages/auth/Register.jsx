@@ -1,47 +1,48 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./SignUp.css";
+import axios from "axios";
+import baseUrl from "../../util";
+import "./Register.css";
 
-function SignUp() {
+function Register() {
+  const [auth, setAuth] = useState(false);
   return (
     <main className="auth-page-container">
-      <Form></Form>
+      {auth ? <h1>User has registered</h1> : ""}
+      <Form setAuth={setAuth}></Form>
     </main>
   );
 }
 
-function Form() {
-  const [auth, setAuth] = useState(true);
+function Form({ setAuth }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleAuth() {
-    setAuth((auth) => !auth);
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault(); // prevent the form from reloading the page
 
+    //Credentials object
+    const credentials = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
     // sending a POST request
-    const response = await fetch("#", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        name: name,
-        password: password,
-      }),
-    });
+    const response = await axios.post(
+      `${baseUrl}/api/v1/auth/register`,
+      credentials
+    );
+
     if (!response.ok) {
       console.error(`Received status code ${response.status}`);
       return;
     }
     const data = await response.json();
     console.log(data);
-    handleAuth();
+
+    setAuth(true);
   };
 
   return (
@@ -50,7 +51,7 @@ function Form() {
         <header>
           <h1>Welcome to CSpace</h1>
           <span>
-            Create an account or <Link>login</Link>
+            Create an account or <Link to="/s">login</Link>
           </span>
         </header>
 
@@ -94,4 +95,4 @@ function Form() {
     </section>
   );
 }
-export default SignUp;
+export default Register;

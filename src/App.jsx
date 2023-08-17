@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Capybara from "./pages/Capybara";
 
-import SignUp from "./pages/auth/SignUp";
+import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Forgot from "./pages/auth/Forgot";
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/capybara" element={<Capybara />} />
         <Route path="/about" element={<About />} />
 
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<Forgot />} />
 

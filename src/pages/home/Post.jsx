@@ -45,6 +45,7 @@ function Posts() {
         return (
           <Post
             key={_id}
+            postId={_id}
             username={username}
             title={title}
             description={description}
@@ -71,7 +72,7 @@ function prefReducer(state, action) {
     case ACTIONS.DECREMENT:
       return state - 1;
     case ACTIONS.RESET:
-      return state;
+      return action.payload.initialState; // <-- Here's the change
     default:
       throw new Error("Reducer received unexpected action");
   }
@@ -84,12 +85,13 @@ function Post({
   likes,
   dislikes,
   createdAt,
-  key,
+  likeStatus,
+  postId,
 }) {
   const initialPref = likes.length - dislikes.length;
   const [prefState, prefDispatch] = useReducer(prefReducer, initialPref);
-  const [userPreference, setUserPreference] = useState("none"); // 'like', 'dislike', 'none'
-
+  const [userPreference, setUserPreference] = useState(likeStatus); // 'like', 'dislike', 'none'
+  const [prevPreference, setPrevPreference] = useState(likeStatus);
   function handlePreferenceChange(newPreference) {
     if (userPreference === "none") {
       setUserPreference(newPreference);
@@ -98,7 +100,10 @@ function Post({
       });
     } else if (userPreference === newPreference) {
       setUserPreference("none");
-      prefDispatch({ type: ACTIONS.RESET });
+      prefDispatch({
+        type: ACTIONS.RESET,
+        payload: { initialState: initialPref },
+      });
     } else {
       setUserPreference(newPreference);
       prefDispatch({
@@ -112,28 +117,36 @@ function Post({
 
   useEffect(() => {
     async function likeDislike() {
+      if (userPreference === prevPreference) {
+        return;
+      }
       let response;
       if (userPreference === "like") {
         response = await axios.post(
-          `${baseUrl}/api/v1/posts/${key}/like/?type=${userPreference}`
+          `${baseUrl}/api/v1/posts/${postId}/likePost?type=${userPreference}`
         );
       } else if (userPreference === "dislike") {
         response = await axios.post(
-          `${baseUrl}/api/v1/posts/${key}/like/?type=${userPreference}`
+          `${baseUrl}/api/v1/posts/${postId}/likePost?type=${userPreference}`
         );
-      } else {
+      } else if (userPreference === "none") {
         response = await axios.delete(
-          `${baseUrl}/api/v1/posts/${key}/like/?type=${userPreference}`
+          `${baseUrl}/api/v1/posts/${postId}/likePost`
         );
+      }
+
+      if (response.status === 200) {
+        setPrevPreference(userPreference);
       }
       console.log(response.status);
     }
-  }, [userPreference]);
+    likeDislike();
+  }, [userPreference, postId]);
 
   const dateObj = createdAt.toLocaleString();
   return (
     <article className="post">
-      <Link to={`/post/${key}`}>
+      <Link to={`/post/${postId}`}>
         <header className="post-header">
           <span>
             {username}
@@ -146,9 +159,17 @@ function Post({
         </div>
       </Link>
       <footer>
-        <button onClick={() => handlePreferenceChange("like")}>like</button>
+        <button
+          onClick={() => handlePreferenceChange("like")}
+          style={userPreference === "dislike" ? { color: "green" } : {}}
+        >
+          like
+        </button>
         <span>{prefState}</span>
-        <button onClick={() => handlePreferenceChange("dislike")}>
+        <button
+          onClick={() => handlePreferenceChange("dislike")}
+          style={userPreference === "dislike" ? { padding: "5px" } : {}}
+        >
           dislike
         </button>
         <button>comment</button>

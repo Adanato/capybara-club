@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import baseUrl from "../../util";
 import "./Login.css";
 
 function Login() {
@@ -11,7 +13,7 @@ function Login() {
 }
 
 function Form() {
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,33 +25,39 @@ function Form() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // prevent the form from reloading the page
 
+    const credentials = {
+      name: name,
+      
+      password: password,
+    };
     // sending a POST request
-    const response = await fetch("#", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        password: password,
-      }),
-    });
+    const response = await axios.post(
+      `${baseUrl}/api/v1/auth/login`,
+      credentials
+    );
     if (!response.ok) {
       console.error(`Received status code ${response.status}`);
       return;
     }
+
     const data = await response.json();
     console.log(data);
-    handleAuth();
+    setAuth(true);
   };
+
+  async function handleDemoCredentials () {
+    setName("")
+    setPassword("")
+    await handleSubmit();
+  }
 
   return (
     <section className="auth-section">
-      <form onSubmit={handleSubmit}>
+      <form action="/login" method="post" onSubmit={handleSubmit}>
         <header>
           <h1>Welcome to CSpace</h1>
           <span>
-            Create an account or <Link>login</Link>
+            Create an account or <Link>signup</Link>
           </span>
         </header>
 
@@ -77,7 +85,8 @@ function Form() {
           />
         </div>
 
-        <input type="submit" value="Login" />
+        <input type="submit" value="login" />
+        <input type="submit" value="demoLogin" onClick={}/>
       </form>
     </section>
   );

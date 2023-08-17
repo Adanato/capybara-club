@@ -24,7 +24,7 @@ function Aside({ handleSideBarToggle, isOpen }) {
           <Link className="aside-link" to="/pictures">
             Pictures
           </Link>
-          <Link className="aside-link" to="/auth">
+          <Link className="aside-link" to="/login">
             Signup/Login
           </Link>
         </nav>
